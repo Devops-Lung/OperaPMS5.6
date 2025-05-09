@@ -40,9 +40,13 @@ Start SQLPlus using a command:
 
    _Password:_
 
-     opera10g Opera10g
+     opera10g 
+     
+     Opera10g
 
-     opera11g Opera11g 
+     opera11g
+     
+     Opera11g 
 
    If idle:
    
@@ -103,30 +107,34 @@ If running, Stop service and then bounce HTTP server service in Oappcfged
        
    If that doesn't work - rename Jinitiator 1.3.1.25 folder to JInitiator 1.3.1.25.old and uninstall/reinstall Oracle Jinitiator program
    
-Incompatible Versions
-Adobe reader 8.12, 10.0.1.2, XI, DC
-Windows 10 (5.0.04.02 ↓)
-Microsoft Edge Browser
-Mozilla Firefox / Google Chrome
-IE 64 - bit
-Refer to most recent Support Matrix for updated info
-IE Settings to update
-Compatibility View - On
-SmartScreen Filter - Off
-Add Opera URL to Trusted Sites
-Custom Level set all ActiveX controls and plug-ins as Enable
-Allow script-initiated windows without size or position constraints
-Manage Add Ons - Disabled
-Popup Blocker - Off
-Java Configuration
-Start -> Configure Java
-Advanced Tab
-Show Console
-Perform TLS Certificate Revocation Checks on - Do Not Check
-Perform Signed Code Certificate Revocation Checks on - Do Not Check
-Use TLS 1.0 / 1.1 / 1.2
-Security Tab
-Add the URL to the Exception Site List
+   Add Opera URL to Trusted Sites
+   
+   Custom Level set all ActiveX controls and plug-ins as Enable
+   
+   Allow script-initiated windows without size or position constraints
+   
+   Manage Add Ons - Disabled
+   
+   Popup Blocker - Off
+   
+ ### 6.3  Java Configuration
+   Start -> Configure Java
+   
+   Advanced Tab
+   
+   Show Console
+   
+   Perform TLS Certificate Revocation Checks on - Do Not Check
+   
+   Perform Signed Code Certificate Revocation Checks on - Do Not Check
+   
+   Use TLS 1.0 / 1.1 / 1.2
+   
+   Security Tab
+   
+   Add the URL OPERA to the Exception Site List
+   
+   
 Manage Certificates - Add the Root CRTS
 Turn off DEP settings for Windows XP
 Right click on My Computer select properties.
@@ -203,13 +211,18 @@ It should say 1 row updated.
 Then commit:
 commit;
 The supervisor account will now be unlocked
-Change Supervisor Password
-Log in to sqlplus as username@schema and run the following (please replace XYZ within App_Password:
-UPDATE OPERA.APPLICATION$_USER SET APP_PASSWORD='BETTERTHANV6', INACTIVE_DATE=NULL, DISABLED_UNTIL=NULL, ACCOUNT_LOCKED_OUT_YN='N', LOCKOUT_DATE=NULL WHERE APP_USER = 'SUPERVISOR';
+## Change Supervisor Password
+Log in to sqlplus as username@schema and run
+    
+        UPDATE APPLICATION$_USER SET APP_PASSWORD='BETTERTHANV6', INACTIVE_DATE=NULL, DISABLED_UNTIL=NULL, ACCOUNT_LOCKED_OUT_YN='N', LOCKOUT_DATE=NULL WHERE APP_USER = 'SUPERVISOR';
 
-commit;
+Then run
+
+       commit;
 
 Password will now be 'BETTERTHANV6 '
+
+    
 Printing Issues
 PRINTER SETUP
 It is the IT responsibility to add the printer to the workstation in Windows. Make sure that printing in windows works correctly before troubleshooting Opera. (test printing from notepad/word)
